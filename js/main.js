@@ -105,16 +105,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const wmpSongList = document.querySelector('.wmp-song-list');
 
     const songs = [
-        { title: '01 Real No Ficcíon - Crashes', src: 'audio/01_Real_No_Ficcion_Crashes.wav' },
-        { title: '02 Real No Ficcíon - Liar', src: 'audio/02_Real_No_Ficcion_Liar.wav' },
-        { title: '03 Real No Ficcíon - Echoes, Time and Names', src: 'audio/03_Real_No_Ficcion_Echoes_Time_and_Names.wav' },
-        { title: '04 Real No Ficcíon - About Blank', src: 'audio/04_Real_No_Ficcion_About_Blank.wav' },
-        { title: '05 Real No Ficcíon - Blame Me', src: 'audio/05_Real_No_Ficcion_Blame_Me.wav' },
-        { title: '06 Real No Ficcíon - Crashes Feat. MADRE', src: 'audio/06_Real_No_Ficcion_Crashes_Feat_MADRE.wav' },
-        { title: '07 Real No Ficcíon - Cold Pools', src: 'audio/07_Real_No_Ficcion_Cold_Pools.wav' },
-        { title: '08 Real No Ficcíon - Never You', src: 'audio/08_Real_No_Ficcion_Never_You.wav' },
-        { title: '09 Real No Ficcíon - Scorpio Sun', src: 'audio/09_Real_No_Ficcion_Scorpio_Sun.wav' },
-        { title: '10 Real No Ficcíon - Trauma Club', src: 'audio/10_Real_No_Ficcion_Trauma_Club.wav' }
+        { title: '01 Real No Ficcíon - Crashes', src: 'audio/01_Real_No_Ficcion_Crashes.mp3' },
+        { title: '02 Real No Ficcíon - Liar', src: 'audio/02_Real_No_Ficcion_Liar.mp3' },
+        { title: '03 Real No Ficcíon - Echoes, Time and Names', src: 'audio/03_Real_No_Ficcion_Echoe_Time_and_Names.mp3' },
+        { title: '04 Real No Ficcíon - About Blank', src: 'audio/04_Real_No_Ficcion_About_Blank.mp3' },
+        { title: '05 Real No Ficcíon - Blame Me', src: 'audio/05_Real_No_Ficcion_Blame_Me.mp3' },
+        { title: '06 Real No Ficcíon - Crashes Feat. MADRE', src: 'audio/06_Real_No_Ficcion_Crashes_Feat_MADRE.mp3' },
+        { title: '07 Real No Ficcíon - Cold Pools', src: 'audio/07_Real_No_Ficcion_Cold_Pools.mp3' },
+        { title: '08 Real No Ficcíon - Never You', src: 'audio/08_Real_No_Ficcion_Never_You.mp3' },
+        { title: '09 Real No Ficcíon - Scorpio Sun', src: 'audio/09_Real_No_Ficcion_Scorpio_Sun.mp3' },
+        { title: '10 Real No Ficcíon - Trauma Club', src: 'audio/10_Real_No_Ficcion_Trauma_Club.mp3' }
     ];
 
     let currentSongIndex = 0;
