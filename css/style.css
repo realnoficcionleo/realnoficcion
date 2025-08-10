@@ -127,7 +127,6 @@ body, html {
 #stream-button:active {
     background-color: #000080;
     border: 0.208vw inset #000080;
-    transform: translate(0.052vw, 0.052vw);
     box-shadow: inset 0 0 0.26vw rgba(0, 0, 0, 0.5);
 }
 

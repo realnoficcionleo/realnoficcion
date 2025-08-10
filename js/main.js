@@ -3,17 +3,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     links.forEach(link => {
         link.addEventListener('click', e => {
+            // Allow stream button to behave normally (open in new tab)
+            if (e.currentTarget.id === 'stream-button') {
+                return; // Do not prevent default, let the browser handle target="_blank"
+            }
+
             // If it's the back button, allow default behavior
             if (e.currentTarget.id === 'back-button') {
                 return;
             }
 
-            // If it's the stream button, allow default behavior (target="_blank" handles new tab)
-            if (e.currentTarget.id === 'stream-button') {
-                return;
-            }
-
-            // For all other links, simply navigate
+            // For all other internal links, simply navigate
             window.location.href = e.currentTarget.href;
         });
     });
