@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const songs = [
         { title: '01 Real No Ficcíon - Crashes', src: 'audio/01 Real No Ficcíon - Crashes.wav' },
         { title: '02 Real No Ficcíon - Liar', src: 'audio/02 Real No Ficcíon - Liar.wav' },
-        { title: '03 Real No Ficcíon - Echoes, Time and Names', src: 'audio/03 Real No Ficcíon - Echoe, Time and Names.wav' },
+        { title: '03 Real No Ficcíon - Echoes, Time and Names', src: 'audio/03 Real No Ficcíon - Echoes, Time and Names.wav' },
         { title: '04 Real No Ficcíon - About Blank', src: 'audio/04 Real No Ficcíon - About Blank.wav' },
         { title: '05 Real No Ficcíon - Blame Me', src: 'audio/05 Real No Ficcíon - Blame Me.wav' },
         { title: '06 Real No Ficcíon - Crashes Feat. MADRE', src: 'audio/06 Real No Ficcíon - Crashes Feat. MADRE.wav' },
@@ -332,12 +332,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 draggableHeart.style.top = `${savedHeartTop}`;
                 console.log('Draggable Heart: Loaded from localStorage', savedHeartLeft, savedHeartTop);
             } else {
-                // Initial positioning (e.g., center of the screen)
-                const initialLeft = (window.innerWidth - draggableHeart.offsetWidth) / 2;
-                const initialTop = (window.innerHeight - draggableHeart.offsetHeight) / 2;
-                draggableHeart.style.left = `${initialLeft}px`;
-                draggableHeart.style.top = `${initialTop}px`;
-                console.log('Draggable Heart: Initial centered position', initialLeft, initialTop);
+                // Initial positioning (e.g., center of the video content area)
+                const videoRect = getVideoContentRect();
+                if (videoRect) {
+                    const initialLeft = videoRect.left + (videoRect.width - draggableHeart.offsetWidth) / 2;
+                    const initialTop = videoRect.top + (videoRect.height - draggableHeart.offsetHeight) / 2;
+                    draggableHeart.style.left = `${initialLeft}px`;
+                    draggableHeart.style.top = `${initialTop}px`;
+                    console.log('Draggable Heart: Initial centered position', initialLeft, initialTop);
+                }
             }
             draggableHeart.style.position = 'absolute'; // Ensure it's absolute
         };
