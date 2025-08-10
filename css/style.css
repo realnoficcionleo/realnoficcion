@@ -1,0 +1,495 @@
+@import url('https://fonts.googleapis.com/css2?family=TT+Norms+Pro+Serif:wght@400;700&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: sans-serif;
+    background-color: #000;
+}
+
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 0; /* Ensure video is at the bottom */
+    transition: 1s opacity;
+}
+
+.video-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* Ensure nav is above video and overlay */
+}
+
+.nav-button {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.0); /* Completely invisible */
+    transition: background 0.3s;
+}
+
+.nav-button:hover {
+    background: rgba(255, 255, 255, 0.0); /* Still completely invisible on hover */
+}
+
+/* Example button positioning - adjust these values based on your video */
+#listen-btn {
+    top: 39%;
+    left: 34%;
+    width: 15%;
+    height: 10%;
+}
+
+#tour-btn {
+    top: 40%;
+    left: 4%;
+    width: 15%;
+    height: 10%;
+}
+
+#merch-btn {
+    top: 34%;
+    left: 79%;
+    width: 15%;
+    height: 10%;
+}
+
+#about-btn {
+    top: 37%;
+    left: 60%;
+    width: 15%;
+    height: 10%;
+}
+
+.media-player-button {
+    position: fixed;
+    left: 1.04vw; /* 20px / 1920px */
+    bottom: 1.85vh; /* 20px / 1080px */
+    width: 3.125vw; /* 60px / 1920px */
+    height: 5.55vh; /* 60px / 1080px */
+    background-color: #c0c0c0; /* Light gray, like old plastic */
+    border: 0.104vw solid #808080; /* 2px / 1920px */
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
+    box-shadow: inset -0.104vw -0.104vw 0px 0px #808080, 0.104vw 0.104vw 0px 0px #000000; /* 2px / 1920px */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #333333;
+    font-size: 1.56vw; /* 30px / 1920px */
+    font-family: 'Arial Black', Gadget, sans-serif;
+    transition: all 0.05s ease-in-out;
+    z-index: 10;
+}
+
+.media-player-button:active {
+    background-color: #a0a0a0;
+    border: 0.104vw inset #808080;
+    transform: translate(0.052vw, 0.052vw); /* 1px / 1920px */
+    box-shadow: inset 0 0 0.26vw rgba(0, 0, 0, 0.5); /* 5px / 1920px */
+}
+
+#stream-button {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 5.21vw; /* 100px / 1920px */
+    height: 9.26vh; /* 100px / 1080px */
+    background: radial-gradient(circle, #007bff 0%, #0000ff 100%); /* Shiny blue gradient */
+    border: 0.208vw solid #000080; /* 4px / 1920px */
+    border-right-color: #0000ff;
+    border-bottom-color: #0000ff;
+    box-shadow: inset -0.208vw -0.208vw 0px 0px #000080, 0.208vw 0.208vw 0px 0px #000000, 0 0 0.78vw rgba(0, 123, 255, 0.8), 0 0 1.56vw rgba(0, 123, 255, 0.6); /* Adjusted shadow for thickness */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 1.25vw; /* 24px / 1920px */
+    font-family: 'Arial Black', Gadget, sans-serif;
+    transition: all 0.05s ease-in-out;
+    z-index: 10;
+    border-radius: 50%; /* Make it circular */
+    text-shadow: 0 0 0.416vw rgba(255, 255, 255, 0.8); /* Glowing text */
+    animation: pulse-glow 1.5s infinite alternate; /* Pulsating animation */
+}
+
+#stream-button:active {
+    background-color: #000080;
+    border: 0.208vw inset #000080;
+    transform: translate(0.052vw, 0.052vw);
+    box-shadow: inset 0 0 0.26vw rgba(0, 0, 0, 0.5);
+}
+
+.video-fade-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Above video, below nav */
+    background: linear-gradient(to right, black 0%, transparent 5%, transparent 95%, black 100%);
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
+.song-buttons-nav {
+    position: absolute;
+    z-index: 2;
+}
+
+.song-button {
+    position: absolute;
+    background-image: url('../images/play_button.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.1s ease-in-out; /* Add a subtle hover effect */
+    width: 3.125vw; /* 60px / 1920px */
+    height: 5.55vh; /* 60px / 1080px */
+}
+
+.song-button:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    background-color: rgba(255, 255, 255, 0.0); /* Ensure transparency on hover */
+}
+
+/* Song button positioning */
+#song-2-btn {
+}
+
+#song-3-btn {
+}
+
+#song-4-btn {
+}
+
+#song-5-btn {
+}
+
+#song-6-btn {
+}
+
+#song-7-btn {
+    width: 3.125vw; /* 60px / 1920px */
+    height: 5.55vh; /* 60px / 1080px */
+}
+
+.wmp-player {
+    position: absolute;
+    width: 41.67vw; /* 800px / 1920px */
+    height: 55.56vh; /* 600px / 1080px (approximate height) */
+    background-color: #1a1a1a; /* Deep dark background */
+    border: 0.104vw solid #00ffff; /* 2px / 1920px */
+    box-shadow: 0 0 1.04vw rgba(0, 255, 255, 0.5), inset 0 0 0.52vw rgba(0, 255, 255, 0.2); /* 20px / 1920px */
+    font-family: 'TT Norms Pro Serif', serif;
+    padding: 0.52vw; /* 10px / 1920px */
+    z-index: 5; /* Above video and overlay */
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+    resize: both; /* Allow resizing */
+    overflow: auto; /* Scrollbars if content overflows */
+}
+
+.wmp-top-bar {
+    background: linear-gradient(to right, #000080, #007bff); /* Darker blue gradient */
+    color: #ffffff;
+    padding: 0.156vw 0.26vw; /* 3px 5px / 1920px */
+    font-size: 0.73vw; /* 14px / 1920px */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.052vw solid #000080; /* 1px / 1920px */
+    cursor: grab; /* Indicate draggable */
+}
+
+.wmp-top-bar .wmp-title {
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.wmp-top-bar .wmp-buttons button {
+    background-color: #333333;
+    border: 0.052vw outset #007bff; /* 1px / 1920px */
+    padding: 0 0.26vw; /* 0 5px / 1920px */
+    margin-left: 0.104vw; /* 2px / 1920px */
+    cursor: pointer;
+    font-family: 'TT Norms Pro Serif', serif;
+    font-size: 0.625vw; /* 12px / 1920px */
+    color: #00ffff;
+}
+
+.wmp-top-bar .wmp-buttons button:active {
+    border: 0.052vw inset #007bff;
+    transform: translate(0.052vw, 0.052vw);
+}
+
+.wmp-main-area {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0.52vw; /* 10px / 1920px */
+}
+
+.wmp-display {
+    background-color: #0d0d0d; /* Even darker display */
+    color: #007bff; /* Vibrant blue text */
+    padding: 0.26vw; /* 5px / 1920px */
+    margin-bottom: 0.52vw; /* 10px / 1920px */
+    font-size: 0.83vw; /* 16px / 1920px */
+    text-align: center;
+    border: 0.052vw solid #00ffff; /* 1px / 1920px */
+    box-shadow: inset 0 0 0.26vw rgba(0, 123, 255, 0.3); /* 5px / 1920px */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.wmp-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.52vw; /* 10px / 1920px */
+    margin-bottom: 0.52vw; /* 10px / 1920px */
+}
+
+.wmp-control-btn {
+    background-color: #333333; /* Dark gray button background */
+    border: 0.104vw solid #007bff; /* 2px / 1920px */
+    padding: 0.26vw 0.52vw; /* 5px 10px / 1920px */
+    font-size: 0.9375vw; /* 18px / 1920px */
+    cursor: pointer;
+    font-family: 'TT Norms Pro Serif', serif;
+    color: #00ffff; /* Electric blue text */
+    text-shadow: 0.052vw 0.052vw 0.156vw rgba(0, 123, 255, 0.5); /* 1px 1px 3px / 1920px */
+}
+
+.wmp-control-btn:active {
+    border: 0.104vw inset #007bff;
+    transform: translate(0.052vw, 0.052vw);
+}
+
+#wmp-volume-fader {
+    width: 5.21vw; /* 100px / 1920px */
+    -webkit-appearance: none;
+    background: #0d0d0d;
+    height: 0.26vw; /* 5px / 1920px */
+    border-radius: 0.26vw; /* 5px / 1920px */
+    outline: none;
+    border: 0.052vw solid #00ffff;
+    box-shadow: inset 0 0 0.26vw rgba(0, 255, 255, 0.3);
+}
+
+#wmp-volume-fader::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 0.78vw; /* 15px / 1920px */
+    height: 0.78vh; /* 15px / 1080px */
+    border-radius: 50%;
+    background: #007bff; /* Vibrant blue thumb */
+    cursor: pointer;
+    border: 0.052vw solid #fff;
+    box-shadow: 0 0 0.52vw rgba(0, 123, 255, 0.7);
+}
+
+#wmp-volume-fader::-moz-range-thumb {
+    width: 0.78vw;
+    height: 0.78vh;
+    border-radius: 50%;
+    background: #007bff; /* Vibrant blue thumb */
+    cursor: pointer;
+    border: 0.052vw solid #fff;
+    box-shadow: 0 0 0.52vw rgba(0, 123, 255, 0.7);
+}
+
+.wmp-song-list {
+    flex-grow: 1;
+    background-color: #0d0d0d; /* Dark background for the list */
+    border: 0.052vw solid #00ffff;
+    overflow-y: auto; /* Scrollable list */
+    font-size: 0.73vw; /* 14px / 1920px */
+    color: #007bff; /* Vibrant blue text */
+    box-shadow: inset 0 0 0.26vw rgba(0, 255, 255, 0.3);
+    display: grid; /* Use CSS Grid */
+    grid-template-columns: 3fr 1fr 1fr 1fr 1fr; /* Define columns */
+    grid-auto-rows: min-content; /* Rows size to content */
+}
+
+.song-list-header {
+    display: contents; /* Make children participate in grid */
+}
+
+.song-list-header div {
+    background-color: #222; /* Darker header background */
+    padding: 0.26vw 0.416vw; /* 5px 8px / 1920px */
+    border-bottom: 0.052vw solid #00ffff;
+    border-right: 0.052vw solid rgba(0, 255, 255, 0.3); /* Vertical separator */
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.625vw; /* 12px / 1920px */
+    text-align: center;
+}
+
+.song-item {
+    display: contents; /* Make children participate in grid */
+}
+
+.song-item div {
+    padding: 0.26vw 0.416vw; /* 5px 8px / 1920px */
+    border-bottom: 0.052vw dashed rgba(0, 255, 255, 0.2); /* Subtle dashed separator */
+    border-right: 0.052vw solid rgba(0, 255, 255, 0.1); /* Subtle vertical separator */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.song-item div:last-child {
+    border-right: none;
+}
+
+.song-item:nth-child(odd) div {
+    background-color: #1a1a1a; /* Alternating dark row color */
+}
+
+.song-item:hover div {
+    background-color: #003333; /* Darker blue-green on hover */
+    color: #ffffff;
+}
+
+.song-item.active div {
+    background-color: #005555;
+    color: #ffffff;
+    text-shadow: 0 0 0.416vw rgba(0, 123, 255, 0.9);
+    border-left: 0.156vw solid #007bff; /* Vibrant blue active indicator */
+    padding-left: 0.26vw; /* 5px / 1920px */
+}
+
+.unclickable-song {
+    opacity: 0.5; /* Dim the unclickable songs */
+    cursor: not-allowed; /* Change cursor to indicate no interaction */
+}
+
+.unclickable-song:hover div {
+    background-color: #0d0d0d; /* Prevent hover effect on unclickable songs */
+    color: #007bff; /* Keep original text color on hover */
+    text-shadow: none;
+}
+
+.terminal-window {
+    position: absolute;
+    width: 20.83vw; /* 400px / 1920px */
+    height: 46.30vh; /* 500px / 1080px */
+    background-color: #000; /* Black terminal background */
+    border: 0.104vw solid #0000ff; /* 2px / 1920px */
+    box-shadow: 0 0 0.78vw rgba(0, 0, 255, 0.5); /* 15px / 1920px */
+    font-family: 'Press Start 2P', cursive; /* Retro font */
+    z-index: 10; /* Ensure it's above other elements */
+    display: flex;
+    flex-direction: column;
+    resize: both; /* Allow resizing */
+    overflow: hidden;
+}
+
+.terminal-top-bar {
+    background-color: #0000ff; /* Blue title bar */
+    color: #fff; /* White text */
+    padding: 0.26vw 0.52vw; /* 5px 10px / 1920px */
+    font-size: 0.73vw; /* 14px / 1920px */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: grab; /* Indicate draggable */
+}
+
+.terminal-top-bar .terminal-title {
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.terminal-top-bar .terminal-buttons button {
+    background-color: #000;
+    color: #0000ff;
+    border: 0.052vw solid #0000ff; /* 1px / 1920px */
+    padding: 0 0.26vw; /* 0 5px / 1920px */
+    margin-left: 0.104vw; /* 2px / 1920px */
+    cursor: pointer;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.625vw; /* 12px / 1920px */
+}
+
+.terminal-top-bar .terminal-buttons button:active {
+    background-color: #000080;
+    transform: translate(0.052vw, 0.052vw);
+}
+
+.terminal-main-area {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0.52vw; /* 10px / 1920px */
+    color: #0000ff; /* Blue text */
+    font-size: 0.625vw; /* 12px / 1920px */
+}
+
+#drawing-canvas {
+    background-color: #000;
+    border: 0.052vw dashed #0000ff; /* 1px / 1920px */
+    flex-grow: 1;
+    margin-bottom: 0.52vw; /* 10px / 1920px */
+    cursor: crosshair;
+}
+
+#annotation-text {
+    background-color: #000;
+    color: #0000ff;
+    border: 0.052vw solid #0000ff; /* 1px / 1920px */
+    padding: 0.26vw; /* 5px / 1920px */
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.625vw; /* 12px / 1920px */
+    resize: vertical;
+    min-height: 2.60vw; /* 50px / 1920px */
+}
+
+#send-annotation-btn {
+    background-color: #0000ff;
+    color: #fff;
+    border: 0.104vw outset #000080; /* 2px / 1920px */
+    padding: 0.416vw 0.78vw; /* 8px 15px / 1920px */
+    font-size: 0.73vw; /* 14px / 1920px */
+    cursor: pointer;
+    font-family: 'Press Start 2P', cursive;
+    margin-top: 0.52vw; /* 10px / 1920px */
+    align-self: flex-end;
+}
+
+#send-annotation-btn:active {
+    background-color: #000080;
+    transform: translate(0.052vw, 0.052vw);
+    box-shadow: inset 0 0 0.26vw rgba(0, 0, 0, 0.5);
+}
+
+#draggable-heart {
+    position: absolute;
+    width: 10.42vw; /* 200px / 1920px */
+    height: 23.15vh; /* 250px / 1080px */
+    cursor: grab;
+    z-index: 10; /* Ensure it's above other elements */
+}
+
+@keyframes pulse-glow {
+    from { box-shadow: 0 0 0.78vw rgba(0, 123, 255, 0.8), 0 0 1.56vw rgba(0, 123, 255, 0.6); }
+    to { box-shadow: 0 0 1.30vw rgba(0, 123, 255, 1), 0 0 2.60vw rgba(0, 123, 255, 0.8); }
+}

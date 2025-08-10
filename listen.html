@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RNF - Listen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="videos/listen.MOV" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+        <div class="video-fade-overlay"></div>
+
+    <div class="wmp-player" id="wmp-player">
+        <div class="wmp-top-bar">
+            <span class="wmp-title">RNF Media Player</span>
+            <div class="wmp-buttons">
+                <button class="wmp-btn minimize">_</button>
+                <button class="wmp-btn maximize">&#9723;</button>
+                <button class="wmp-btn close">X</button>
+            </div>
+        </div>
+        <div class="wmp-main-area">
+            <div class="wmp-display">
+                Now Playing: <span id="current-song-title"></span>
+            </div>
+            <div class="wmp-controls">
+                <button id="wmp-prev-btn" class="wmp-control-btn">&#9664;&#9664;</button>
+                <button id="wmp-play-pause-btn" class="wmp-control-btn">&#9658;</button>
+                <button id="wmp-next-btn" class="wmp-control-btn">&#9654;&#9654;</button>
+                <input type="range" id="wmp-volume-fader" min="0" max="1" step="0.01" value="1">
+            </div>
+            <div class="wmp-song-list">
+                <div class="song-list-header">
+                    <div class="col-filename">File Name</div>
+                    <div class="col-filesize">Size</div>
+                    <div class="col-bitrate">Bitrate</div>
+                    <div class="col-frequency">Freq</div>
+                    <div class="col-length">Length</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="index.html" class="media-player-button" id="back-button">&#9664;</a>
+
+    <a href="https://open.spotify.com/intl-pt/artist/3YQGp0xoC2GtuMBXEQ0OnK?si=uWAqu4rqQpCKO3RfHmALTQ" id="stream-button" target="_blank">Stream</a>
+
+    <div class="terminal-window" id="annotation-terminal">
+        <div class="terminal-top-bar">
+            <span class="terminal-title">Annotation Terminal</span>
+            <div class="terminal-buttons">
+                <button class="terminal-btn minimize">_</button>
+                <button class="terminal-btn maximize">&#9723;</button>
+                <button class="terminal-btn close">X</button>
+            </div>
+        </div>
+        <div class="terminal-main-area">
+            <canvas id="drawing-canvas"></canvas>
+            <textarea id="annotation-text" placeholder="Type your notes here..."></textarea>
+            <button id="send-annotation-btn">Send</button>
+        </div>
+    </div>
+
+    <img id="draggable-heart" src="images/heart.png" alt="Draggable Heart">
+
+    <script src="js/main.js"></script>
+</body>
+</html>
