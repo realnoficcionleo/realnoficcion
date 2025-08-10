@@ -3,8 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     links.forEach(link => {
         link.addEventListener('click', e => {
-            // If it's the media player button or stream button, allow default behavior
-            if (e.currentTarget.classList.contains('media-player-button') || e.currentTarget.id === 'stream-button') {
+            // If it's the back button, allow default behavior
+            if (e.currentTarget.id === 'back-button') {
+                return;
+            }
+
+            // If it's the stream button, allow default behavior (target="_blank" handles new tab)
+            if (e.currentTarget.id === 'stream-button') {
                 return;
             }
 
